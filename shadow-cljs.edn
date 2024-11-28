@@ -1,0 +1,20 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dev-http
+ {7777 {:root "static"
+        :host "0.0.0.0"}}
+
+ :dependencies
+ [[reagent "1.2.0"]
+  [funcool/promesa "11.0.678"]]
+
+ :builds
+ {:web {:target     :browser
+        :asset-path "/vr-game"
+        :output-dir "static/vr-game"
+        :modules    {:app {:init-fn vr-game.core/main}}
+        :release    {:closure-defines {vr-game.config/base-url "/vr-game"}}}}}
